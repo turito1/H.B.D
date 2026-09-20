@@ -1,69 +1,450 @@
-<section class="city screen">
-  <div class="section-tag">04 / a little sky-blue corner 💙</div>
+```html
+<!doctype html>
+<html lang="ar" dir="rtl">
 
-  <div class="city-content">
-    <p class="eyebrow">for the city girl</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <h2>
-      Keep dreaming.<br>
-      <em>Keep enjoying.</em>
-    </h2>
+  <title>Turito's Little Ocean 🪼</title>
 
-    <div class="quotes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      <article class="quote-card">
-        <span class="quote-mark">“</span>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-        <p>
-          "The most important thing is to enjoy."
-        </p>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <div class="quote-ar">
-          أهم شيء هو أن تستمتعي.
+<body>
+
+  <div class="ocean-noise"></div>
+  <div class="bubbles" id="bubbles"></div>
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero screen" id="home">
+
+      <nav class="nav">
+        <span class="brand">turito<span>°</span></span>
+
+        <span class="nav-note">
+          عالم صغير صُنع لكِ بحب
+        </span>
+      </nav>
+
+      <div class="hero-grid">
+
+        <div class="hero-copy">
+
+          <p class="eyebrow">
+            a little world, just for you
+          </p>
+
+          <h1>
+            أهلًا بكِ في<br>
+            <em>عالم توري الصغير.</em>
+          </h1>
+
+          <p class="lead">
+            هنا البحر أهدأ، والقناديل أجمل،
+            وكل شيء في هذا العالم معمول عشانكِ.
+          </p>
+
+          <button class="primary" id="diveBtn">
+            انزلي للعمق
+            <span>🪼</span>
+          </button>
+
         </div>
 
-        <span class="quote-author">
-          — Erling Haaland
-        </span>
-      </article>
+        <div class="portrait-wrap">
 
-      <article class="quote-card">
-        <span class="quote-mark">“</span>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
 
-        <p>
-          "I just love the game."
-        </p>
+          <div class="portrait-card">
 
-        <div class="quote-ar">
-          أنا فقط أحب اللعبة.
+            <span class="card-label">
+              my favorite person
+            </span>
+
+            <!-- ضعِي صورتها هنا باسم turito.jpg -->
+            <img
+              src="turito.jpg"
+              alt="Turito"
+              class="portrait"
+            />
+
+            <div class="portrait-bottom">
+              <span>made of stardust & sea foam</span>
+              <span>♡</span>
+            </div>
+
+          </div>
+
+          <div class="jelly hero-jelly">
+            🪼
+          </div>
+
+          <div class="tiny-cat">
+            🐈‍⬛
+          </div>
+
         </div>
 
-        <span class="quote-author">
-          — Phil Foden
-        </span>
-      </article>
+      </div>
 
-      <article class="quote-card">
-        <span class="quote-mark">“</span>
+      <div class="scroll-hint">
+        انزلي واكتشفي عالمكِ
+        <span>↓</span>
+      </div>
 
-        <p>
-          "Keep improving and trying to stay on top of my game."
+    </section>
+
+
+    <!-- =========================
+         BIRTHDAY
+    ========================== -->
+
+    <section class="birthday screen" id="birthday">
+
+      <div class="section-tag">
+        01 / أجمل جزء
+      </div>
+
+      <div class="birthday-content">
+
+        <p class="eyebrow">
+          من قلب صغير إلى قلبكِ
         </p>
 
-        <div class="quote-ar">
-          استمري في التطور، وحاولي دائمًا أن تكوني في أفضل حالاتك.
+        <h2>
+          Happy Birthday,<br>
+          <em>Turito.</em>
+        </h2>
+
+        <p class="message">
+          كل عام وأنتِ بخير يا توري 🤍
+          <br><br>
+          أتمنى لكِ عامًا جديدًا مليئًا بالهدوء،
+          والسعادة بحجم المحيط،
+          واللحظات الصغيرة التي تجعلكِ تبتسمين من قلب.
+          <br><br>
+          سنة مليئة بالضحك،
+          والأشياء التي تحبينها،
+          والانتصارات التي تستحقينها. 💙
+        </p>
+
+        <p class="signature">
+          لأنكِ تستحقين سنة تشبهكِ ♡
+        </p>
+
+      </div>
+
+      <div class="floating-note note-one">
+        أنتِ نادرة جدًا ✦
+      </div>
+
+      <div class="floating-note note-two">
+        استمري بالتوهج
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAVORITES
+    ========================== -->
+
+    <section class="favorites screen" id="favorites">
+
+      <div class="section-tag">
+        02 / عالم توري
+      </div>
+
+      <h2>
+        أشياء تخلي<br>
+        <em>توري... توري.</em>
+      </h2>
+
+      <div class="favorite-grid">
+
+        <!-- الكارد الموجود في المنتصف -->
+        <article
+          class="favorite jelly-card"
+          id="jellySecret"
+        >
+
+          <div class="icon">
+            🪼
+          </div>
+
+          <h3>
+            قنديل توري
+          </h3>
+
+          <p>
+            ناعم، مضيء، غريب بطريقة جميلة...
+            والأهم أنه المفضل دائمًا.
+          </p>
+
+          <span class="card-foot">
+            اضغطي على القنديل ↓
+          </span>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         WISHES
+    ========================== -->
+
+    <section class="wishes screen" id="wishes">
+
+      <div class="section-tag">
+        03 / أمنيات صغيرة
+      </div>
+
+      <h2>
+        أشياء أتمنى<br>
+        <em>تلقينها في سنتك الجديدة.</em>
+      </h2>
+
+      <div class="wish-list">
+
+        <button class="wish">
+          <span>
+            أيام أكثر تخليكِ تضحكين من قلب
+          </span>
+          <strong>＋</strong>
+        </button>
+
+        <button class="wish">
+          <span>
+            أشخاص يجعلون قلبكِ يشعر بالأمان
+          </span>
+          <strong>＋</strong>
+        </button>
+
+        <button class="wish">
+          <span>
+            أحلام تتحول إلى أشياء حقيقية
+          </span>
+          <strong>＋</strong>
+        </button>
+
+        <button class="wish">
+          <span>
+            سنة ألطف من كل سنة قبلها
+          </span>
+          <strong>＋</strong>
+        </button>
+
+      </div>
+
+      <p class="wish-hint">
+        اضغطي على الأمنية واكتشفي الرسالة الصغيرة بداخلها
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         MANCHESTER CITY
+    ========================== -->
+
+    <section class="city screen" id="city">
+
+      <div class="section-tag">
+        04 / زاوية سماوية 💙
+      </div>
+
+      <div class="city-content">
+
+        <p class="eyebrow">
+          لأن السماوي له مكان خاص
+        </p>
+
+        <h2>
+          استمتعي باللحظة،<br>
+          <em>وكمّلي طريقك.</em>
+        </h2>
+
+        <p class="city-intro">
+          مثل كرة القدم، الحياة مو كلها عن النتيجة...
+          أحيانًا أجمل شيء هو أنكِ تعيشين اللحظة نفسها.
+        </p>
+
+        <div class="quotes">
+
+          <!-- HAALAND -->
+
+          <article class="quote-card">
+
+            <span class="quote-mark">
+              “
+            </span>
+
+            <p class="quote-en">
+              My hope for the season? To enjoy.
+            </p>
+
+            <p class="quote-ar">
+              أمنيتي؟ أن أستمتع.
+            </p>
+
+            <span class="quote-author">
+              — Erling Haaland
+            </span>
+
+          </article>
+
+
+          <!-- HAALAND -->
+
+          <article class="quote-card">
+
+            <span class="quote-mark">
+              “
+            </span>
+
+            <p class="quote-en">
+              I will try to enjoy every moment.
+            </p>
+
+            <p class="quote-ar">
+              سأحاول أن أستمتع بكل لحظة.
+            </p>
+
+            <span class="quote-author">
+              — Erling Haaland
+            </span>
+
+          </article>
+
+
+          <!-- FODEN / CITY SPIRIT -->
+
+          <article class="quote-card">
+
+            <span class="quote-mark">
+              “
+            </span>
+
+            <p class="quote-en">
+              Take it day by day.
+            </p>
+
+            <p class="quote-ar">
+              خذيها يومًا بيوم.
+            </p>
+
+            <span class="quote-author">
+              — City spirit 💙
+            </span>
+
+          </article>
+
         </div>
 
-        <span class="quote-author">
-          — Phil Foden
-        </span>
-      </article>
+        <p class="city-note">
+          ويمكن تكون سنتك الجديدة مثل مباراة جميلة...
+          <br>
+          تستمتعين بكل لحظة فيها،
+          وتكمّلين طريقك مهما صار. 💙
+        </p>
 
-    </div>
+      </div>
 
-    <p class="city-note">
-      ويمكن يمكن تكون سنتك الجديدة مثل مباراة جميلة...
-      تستمتعين بكل لحظة فيها، وتكملين طريقك مهما صار. 💙
-    </p>
-  </div>
-</section>
+    </section>
+
+
+    <!-- =========================
+         SECRET
+    ========================== -->
+
+    <section class="secret screen" id="secret">
+
+      <div class="secret-shell">
+
+        <div
+          class="jelly big-jelly"
+          id="bigJelly"
+        >
+          🪼
+        </div>
+
+        <p class="eyebrow">
+          وصلتِ إلى آخر الرحلة
+        </p>
+
+        <h2>
+          بس قبل ما نطلع من عالمك...
+        </h2>
+
+        <p>
+          أتمنى تظلين تتذكرين دائمًا
+          إنكِ شخص جميل،
+          مو بس بالأشياء اللي تسوينها،
+          لكن بالطريقة اللي تكونين فيها أنتِ.
+        </p>
+
+        <p>
+          أتمنى سنتك الجديدة تحمل لكِ أيامًا
+          تشبه قلبك؛
+          هادئة، جميلة،
+          ومليئة بالأشياء اللي تخليكِ تبتسمين من قلب.
+        </p>
+
+        <p>
+          وإذا كانت الحياة بحرًا واسعًا،
+          أتمنى تلقين فيه دائمًا أماكن تشعرين فيها بالأمان،
+          وأشخاصًا يكون وجودهم مثل الضوء وسط الموج.
+        </p>
+
+        <div class="final-line">
+
+          كل عام وأنتِ بخير يا توري 🤍
+          <br>
+
+          وعسى أيامك الجاية تكون أجمل
+          من كل أمنية تمنيتها.
+
+        </div>
+
+        <button
+          class="secondary"
+          id="replayBtn"
+        >
+          نرجع نعيشها من البداية ↻
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+```
