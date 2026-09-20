@@ -1,4 +1,3 @@
-```javascript
 document.addEventListener("DOMContentLoaded", () => {
 
   const diveBtn = document.getElementById("diveBtn");
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /* البداية */
+  /* Dive In */
 
   diveBtn.addEventListener("click", () => {
     goTo("birthday");
@@ -35,16 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================== */
 
   jellySecret.addEventListener("click", () => {
+
     goTo("secret");
 
     setTimeout(() => {
       showToast("لقيتي السر 🪼🤍");
     }, 700);
+
   });
 
 
   /* =========================
-     BIG JELLY
+     BIG JELLYFISH
   ========================== */
 
   bigJelly.addEventListener("click", () => {
@@ -55,7 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
       bigJelly.style.transform = "";
     }, 350);
 
-    showToast("🪼 هذا القنديل يقول: كل عام وأنتِ بخير يا توري");
+    showToast(
+      "كل عام وأنتِ بخير يا توري 🪼🤍"
+    );
+
   });
 
 
@@ -64,10 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================== */
 
   replayBtn.addEventListener("click", () => {
+
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+
   });
 
 
@@ -78,10 +84,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const wishes = document.querySelectorAll(".wish");
 
   const wishMessages = [
+
     "وأتمنى ضحكتك تصير أكثر من كل شيء يزعلك. 🤍",
+
     "وأتمنى حولك دائمًا أشخاص تحسين معهم إنك في بيتك.",
+
     "وأتمنى كل حلم صغير خبّيتيه بقلبك يلقى طريقه لك.",
+
     "وأتمنى تكون سنتك الجديدة ألطف عليك من كل اللي قبلها."
+
   ];
 
   wishes.forEach((wish, index) => {
@@ -110,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     BUBBLES
+     FLOATING BUBBLES
   ========================== */
 
   function createBubble() {
@@ -123,9 +134,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const left = Math.random() * 100;
     const duration = Math.random() * 8 + 7;
 
-    bubble.style.setProperty("--size", `${size}px`);
-    bubble.style.setProperty("--left", `${left}%`);
-    bubble.style.setProperty("--duration", `${duration}s`);
+    bubble.style.setProperty(
+      "--size",
+      `${size}px`
+    );
+
+    bubble.style.setProperty(
+      "--left",
+      `${left}%`
+    );
+
+    bubble.style.setProperty(
+      "--duration",
+      `${duration}s`
+    );
 
     bubbles.appendChild(bubble);
 
@@ -144,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     CLICK ANYWHERE = BUBBLE
+     CLICK BUBBLES
   ========================== */
 
   document.addEventListener("click", (event) => {
@@ -182,8 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(bubble);
 
     requestAnimationFrame(() => {
-      bubble.style.transform = "translateY(-45px) scale(1.8)";
+
+      bubble.style.transform =
+        "translateY(-45px) scale(1.8)";
+
       bubble.style.opacity = "0";
+
     });
 
     setTimeout(() => {
@@ -204,6 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
     clearTimeout(toastTimer);
 
     toast.textContent = message;
+
     toast.classList.add("show");
 
     toastTimer = setTimeout(() => {
@@ -213,4 +240,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-```
