@@ -1,719 +1,187 @@
-```css
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: #061b35;
-  color: #f5fbff;
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-}
-
-/* =========================
-   BACKGROUND
-========================= */
-
-.ocean-noise {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: .08;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-  z-index: 5;
-}
-
-.screen {
-  min-height: 100vh;
-  position: relative;
-  padding: 38px clamp(24px, 6vw, 100px);
-  overflow: hidden;
-}
-
-.hero {
-  background:
-    radial-gradient(
-      circle at 75% 35%,
-      #205c91 0,
-      #0b3158 35%,
-      #061b35 75%
-    );
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.brand {
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-
-.brand span {
-  color: #9ce8ff;
-}
-
-.nav-note,
-.micro {
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #9dbbd0;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero-grid {
-  max-width: 1250px;
-  margin: 10vh auto 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.eyebrow,
-.section-tag {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #9ce8ff;
-  font-weight: 700;
-}
-
-.hero h1,
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(44px, 6vw, 82px);
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin: 24px 0;
-}
-
-.hero h1 em,
-h2 em {
-  color: #a7eaff;
-  font-style: italic;
-}
-
-.lead {
-  max-width: 470px;
-  color: #b9d2e3;
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-.primary,
-.secondary {
-  border: 0;
-  border-radius: 100px;
-  padding: 16px 25px;
-  font: 600 14px inherit;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.primary {
-  background: #b9f0ff;
-  color: #06203c;
-  margin-top: 18px;
-}
-
-.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px #76dfff33;
-}
-
-.micro {
-  margin-top: 25px;
-  font-size: 9px;
-}
-
-/* =========================
-   PORTRAIT
-========================= */
-
-.portrait-wrap {
-  position: relative;
-  max-width: 450px;
-  margin: auto;
-}
-
-.portrait-card {
-  position: relative;
-  background: #ffffff12;
-  border: 1px solid #ffffff35;
-  border-radius: 230px 230px 18px 18px;
-  padding: 12px;
-  transform: rotate(3deg);
-  box-shadow: 0 25px 80px #0004;
-  backdrop-filter: blur(8px);
-}
-
-.portrait {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 220px 220px 12px 12px;
-}
-
-.card-label {
-  position: absolute;
-  top: 28px;
-  left: 28px;
-  background: #06203ccc;
-  border-radius: 30px;
-  padding: 8px 12px;
-  font-size: 10px;
-  z-index: 1;
-}
-
-.portrait-bottom {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 8px 4px;
-  color: #b8d5e5;
-  font-size: 10px;
-}
-
-.orbit {
-  position: absolute;
-  border: 1px solid #8ce4ff44;
-  border-radius: 50%;
-  inset: -45px;
-  animation: spin 30s linear infinite;
-}
-
-.orbit-two {
-  inset: -90px;
-  animation-direction: reverse;
-  border-style: dashed;
-}
-
-/* =========================
-   JELLYFISH
-========================= */
-
-.jelly {
-  font-size: 75px;
-  filter: drop-shadow(0 0 22px #b2eaff88);
-  animation: float 5s ease-in-out infinite;
-}
-
-.hero-jelly {
-  position: absolute;
-  right: -40px;
-  top: 18%;
-  font-size: 90px;
-}
-
-.tiny-cat {
-  position: absolute;
-  bottom: -20px;
-  left: -35px;
-  font-size: 55px;
-  transform: rotate(-12deg);
-}
-
-/* =========================
-   SCROLL
-========================= */
-
-.scroll-hint {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #7197b2;
-}
-
-.scroll-hint span {
-  display: block;
-  text-align: center;
-  margin-top: 8px;
-}
-
-/* =========================
-   BIRTHDAY
-========================= */
-
-.birthday {
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background:
-    radial-gradient(
-      ellipse at center,
-      #124a70,
-      #071f3b 65%,
-      #061b35
-    );
-}
-
-.birthday-content {
-  max-width: 720px;
-}
-
-.birthday h2 {
-  font-size: clamp(55px, 8vw, 105px);
-}
-
-.message {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(18px, 2.2vw, 25px);
-  line-height: 1.8;
-  color: #c3dce9;
-}
-
-.signature {
-  color: #9ce8ff;
-  font-size: 13px;
-  margin-top: 35px;
-}
-
-/* =========================
-   SECTION TAG
-========================= */
-
-.section-tag {
-  position: absolute;
-  top: 45px;
-  left: clamp(24px, 6vw, 100px);
-}
-
-/* =========================
-   FLOATING NOTES
-========================= */
-
-.floating-note {
-  position: absolute;
-  padding: 12px 18px;
-  border: 1px solid #ffffff25;
-  border-radius: 100px;
-  background: #ffffff0b;
-  color: #a8c9db;
-  font-size: 11px;
-}
-
-.note-one {
-  top: 25%;
-  left: 10%;
-  transform: rotate(-8deg);
-}
-
-.note-two {
-  bottom: 20%;
-  right: 10%;
-  transform: rotate(7deg);
-}
-
-/* =========================
-   FAVORITES
-========================= */
-
-.favorites {
-  background: linear-gradient(#061b35, #082b4b);
-  padding-top: 130px;
-}
-
-.favorites h2,
-.wishes h2 {
-  text-align: center;
-  font-size: clamp(40px, 5vw, 68px);
-}
-
-/*
-  نخلي الكروت في المنتصف بدل توزيعها
-  من اليسار إلى اليمين.
-*/
-
-.favorite-grid {
-  max-width: 1100px;
-  margin: 70px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-}
-
-/* الكارد التفاعلي */
-#jellySecret {
-  width: min(100%, 420px);
-  min-height: 310px;
-  margin: 0 auto;
-  cursor: pointer;
-}
-
-/* تأثير إضافي للكارد التفاعلي */
-#jellySecret:hover {
-  transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 20px 50px #0003;
-}
-
-.favorite {
-  min-height: 310px;
-  border-radius: 22px;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  transition: .35s;
-  border: 1px solid #ffffff20;
-}
-
-.favorite:hover {
-  transform: translateY(-8px);
-}
-
-.ocean-card {
-  background: linear-gradient(145deg, #155b7c, #0c304e);
-}
-
-.jelly-card {
-  background: linear-gradient(145deg, #40366f, #192b55);
-}
-
-.cat-card {
-  background: linear-gradient(145deg, #365b68, #17394e);
-}
-
-.city-card {
-  background: linear-gradient(145deg, #2a7197, #16466c);
-}
-
-.icon {
-  font-size: 55px;
-  margin-bottom: 35px;
-}
-
-.favorite h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 23px;
-  margin: 0 0 12px;
-}
-
-.favorite p {
-  color: #c0d5e1;
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-.card-foot {
-  margin-top: auto;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #9ce8ff;
-}
-
-/* =========================
-   WISHES
-========================= */
-
-.wishes {
-  background:
-    radial-gradient(
-      circle at 50% 0,
-      #154d70,
-      #061b35 65%
-    );
-  padding-top: 130px;
-}
-
-.wish-list {
-  max-width: 800px;
-  margin: 65px auto 0;
-}
-
-.wish {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  background: #ffffff09;
-  border: 1px solid #ffffff20;
-  border-radius: 18px;
-  color: #e9f7ff;
-  padding: 22px 25px;
-  margin: 12px 0;
-  font: 15px inherit;
-  cursor: pointer;
-  transition: .3s;
-}
-
-.wish:hover {
-  background: #a9eaff15;
-  border-color: #9ce8ff66;
-}
-
-.wish span {
-  font-size: 25px;
-  color: #9ce8ff;
-}
-
-.wish.revealed {
-  background: #9ce8ff18;
-}
-
-.wish-hint {
-  text-align: center;
-  color: #739bb6;
-  font-size: 11px;
-  letter-spacing: 1px;
-}
-
-/* =========================
-   SECRET
-========================= */
-
-.secret {
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background:
-    radial-gradient(
-      circle at center,
-      #164c6d,
-      #061b35 70%
-    );
-}
-
-.secret-shell {
-  max-width: 650px;
-}
-
-.big-jelly {
-  font-size: 115px;
-  margin-bottom: 20px;
-}
-
-.secret h2 {
-  font-size: clamp(45px, 6vw, 75px);
-}
-
-.secret p {
-  color: #c2dbe8;
-  line-height: 1.9;
-  font-size: 16px;
-}
-
-.final-line {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  color: #a7eaff;
-  font-size: 23px;
-  margin: 35px 0;
-}
-
-.secondary {
-  background: transparent;
-  color: #b9eaff;
-  border: 1px solid #9ce8ff66;
-}
-
-.secondary:hover {
-  background: #9ce8ff15;
-}
-
-/* =========================
-   BUBBLES
-========================= */
-
-.bubbles {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 3;
-}
-
-.bubble {
-  position: absolute;
-  bottom: -30px;
-  width: var(--size);
-  height: var(--size);
-  border: 1px solid #b8edff55;
-  border-radius: 50%;
-  animation: rise var(--duration) linear infinite;
-  left: var(--left);
-}
-
-/* =========================
-   TOAST
-========================= */
-
-.toast {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translate(-50%, 20px);
-  background: #c0f2ff;
-  color: #082440;
-  padding: 14px 22px;
-  border-radius: 100px;
-  font-size: 13px;
-  opacity: 0;
-  transition: .3s;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes float {
-  50% {
-    transform: translateY(-20px) rotate(5deg);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes rise {
-  to {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 800px) {
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    margin-top: 12vh;
-    gap: 45px;
-  }
-
-  .hero-copy {
-    text-align: center;
-  }
-
-  .lead {
-    margin: auto;
-  }
-
-  .portrait-wrap {
-    width: min(80vw, 350px);
-  }
-
-  .hero-jelly {
-    right: -30px;
-  }
-
-  /*
-    يبقى الكارد في المنتصف على الشاشات الصغيرة
-  */
-
-  .favorite-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #jellySecret {
-    width: min(90vw, 420px);
-  }
-
-  .nav-note {
-    display: none;
-  }
-
-  .screen {
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-
-  .section-tag {
-    left: 22px;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 500px) {
-
-  .favorite-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 55px;
-  }
-
-  #jellySecret {
-    width: 100%;
-    max-width: 360px;
-    min-height: 280px;
-  }
-
-  .favorite {
-    min-height: 250px;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-  }
-
-  .portrait-wrap {
-    width: 75vw;
-  }
-
-  .floating-note {
-    display: none;
-  }
-
-  .big-jelly {
-    font-size: 90px;
-  }
-
-  .secret-shell {
-    width: 100%;
-  }
-
-  .secret p {
-    font-size: 15px;
-  }
-
-  .final-line {
-    font-size: 20px;
-  }
-}
-```
-
-**مهم:** هذا يعدل **مكان الكارد فقط من ناحية CSS**. إذا تبين عند الضغط عليه فعلًا ينزل تلقائيًا إلى قسم المفاجأة `#secret`، لازم أشوف `script.js` لأن الحركة نفسها غالبًا موجودة هناك.
-
-وأيضًا `turito.jpg` عندك **صحيح تمامًا** إذا اسم الصورة في GitHub هو `turito.jpg`.
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turito's Little Ocean 🪼✨</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Texture -->
+  <div class="ocean-noise"></div>
+
+  <!-- Dynamic Floating Bubbles -->
+  <div class="bubbles" id="bubblesContainer"></div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Hero / Landing Section -->
+  <section class="screen hero" id="hero">
+    <nav class="nav">
+      <div class="brand">Turito<span>.ocean 🪼</span></div>
+      <div class="nav-note">Special Birthday Gift 💙</div>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-copy" dir="ltr">
+        <span class="eyebrow">Welcome to a magical world</span>
+        <h1>Turito’s Little <em>Ocean</em></h1>
+        <p class="lead">
+          عالم بحري صغير صُمم بحب احتفالاً بعيد ميلاد توري! 
+          حيث تجتمع القناديل الساحرة، أنغام المحيط، ولحظات مانشستر سيتي الجميلة 💙✨
+        </p>
+        <button class="primary" onclick="scrollToSection('birthday')">Dive Into The Birthday 🪼</button>
+        <div class="micro">Made with love for Turito</div>
+      </div>
+
+      <div class="portrait-wrap">
+        <div class="orbit"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="hero-jelly jelly">🪼</div>
+        <div class="tiny-cat">🐱🥽</div>
+
+        <div class="portrait-card">
+          <div class="card-label">Birthday Girl 👑</div>
+          <!-- اسم الصورة turito.jpg كما طلبته -->
+          <img src="turito.jpg" alt="Turito" class="portrait" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';">
+          <div class="portrait-bottom">
+            <span>Special Day</span>
+            <span>Happy Birthday Turito ✨</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      Scroll To Explore
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- Birthday Greeting Section -->
+  <section class="screen birthday" id="birthday">
+    <span class="section-tag">Happy Birthday</span>
+    <div class="floating-note note-one">🪼 Jellyfish Magic</div>
+    <div class="floating-note note-two">💙 Cityzen Forever</div>
+
+    <div class="birthday-content">
+      <div class="jelly">🪼</div>
+      <h2>Happy Birthday, <em>Turito!</em></h2>
+      <p class="message" dir="ltr">
+        "May your new year be as deep and serene as the ocean, filled with endless laughter, gentle waves of joy, and all the victories you dream of."
+      </p>
+      <p class="message" style="font-family: 'Tajawal', sans-serif; margin-top: 15px;">
+        كل عام وأنتِ ألطف وأجمل توري في الدنيا! أتمنى لكِ سنة ساحرة مليئة بالسعادة، والنجاحات، والأيام اللطيفة كأجواء البحر 🌊💙
+      </p>
+      <div class="signature">crafted with love • for the sweetest soul</div>
+    </div>
+  </section>
+
+  <!-- Favorites Section (Things that make Turito, Turito) -->
+  <section class="screen favorites" id="favorites">
+    <h2>Things That Make <em>Turito, Turito</em></h2>
+
+    <div class="favorite-grid">
+      
+      <!-- Ocean Card -->
+      <div class="favorite ocean-card">
+        <div class="icon">🌊</div>
+        <h3>The Deep Ocean</h3>
+        <p>هدوء المحيط وسحره العميق. المكان الذي تتجدد فيه الطاقة وتسبح فيه الأحلام دون حدود.</p>
+        <div class="card-foot">Endless Blue</div>
+      </div>
+
+      <!-- Jellyfish Card (Interactive Trigger) -->
+      <div class="favorite jelly-card" id="jellySecret" onclick="triggerJellySurprise()">
+        <div class="icon">🪼</div>
+        <h3>Jellyfish Vibe</h3>
+        <p>الرمز المفضل للطف والجمال الهادئ. اضغطي هنا لاكتشاف مفاجأة بحرية صغيرة!</p>
+        <div class="card-foot">Click For Surprise ✨</div>
+      </div>
+
+      <!-- Cats Card -->
+      <div class="favorite cat-card">
+        <div class="icon">🐾</div>
+        <h3>Diving Cats</h3>
+        <p>لمسة الكيوت والمرح! قطط لطيفة ترتدي نظارات غوص واستكشاف تحت الماء 🐱🥽</p>
+        <div class="card-foot">Purrfect World</div>
+      </div>
+
+      <!-- Manchester City Card with Haaland & Foden Quotes -->
+      <div class="favorite city-card">
+        <div class="icon">💙</div>
+        <h3>Man City Energy</h3>
+        <p>روح الأبطال باللون السماوي الساحر! مع اقتباسات ملهمة لعامكِ الجديد:</p>
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 12px; margin-top: 10px; font-size: 12px; text-align: left;" dir="ltr">
+          <strong>Erling Haaland:</strong><br>
+          <em>"Focus on the moment and enjoy every single step of the journey."</em> ✨
+        </div>
+
+        <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 12px; margin-top: 8px; font-size: 12px; text-align: left;" dir="ltr">
+          <strong>Phil Foden:</strong><br>
+          <em>"Every day is a new opportunity to express yourself and shine." 🌟</em>
+        </div>
+
+        <div class="card-foot" style="margin-top: 15px;">Champions Mindset</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Wishes Section -->
+  <section class="screen wishes" id="wishes">
+    <h2>Wishes For <em>Your New Year</em></h2>
+    <div class="wish-hint">اضغطي على الأسرار البحرية لفتح أمنيات عامكِ الجديد 🪼</div>
+
+    <div class="wish-list">
+      <button class="wish" onclick="revealWish(this, 'أتمنى لكِ سنة ملأى بالطمأنينة والأيام الهادئة كأعماق البحر ✨')">
+        <span>01</span>
+        <div class="wish-text">سعادة واطمئنان بلا حدود</div>
+        <span>✦</span>
+      </button>
+
+      <button class="wish" onclick="revealWish(this, 'أن تتحقق كل طموحاتكِ وتكوني دائمًا في القمة مثل مانشستر سيتي! 💙🏆')">
+        <span>02</span>
+        <div class="wish-text">انتصارات وتحقيق للأهداف</div>
+        <span>✦</span>
+      </button>
+
+      <button class="wish" onclick="revealWish(this, 'لحظات مليئة بالمرح، واللطافة، والرفقة الجميلة 🐾🐱')">
+        <span>03</span>
+        <div class="wish-text">أيام لطيفة ومبهجة</div>
+        <span>✦</span>
+      </button>
+
+      <button class="wish" onclick="revealWish(this, 'أن يحيطكِ الحب والدفء أينما كنتِ كما تُحيط الأمواج بالشواطئ 🌊🪼')">
+        <span>04</span>
+        <div class="wish-text">حب ودفء دائماً</div>
+        <span>✦</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Secret Final Section -->
+  <section class="screen secret" id="secret">
+    <div class="secret-shell">
+      <div class="big-jelly jelly">🪼</div>
+      <h2>A Secret Note <em>for Turito</em></h2>
+      <p>
+        توري.. شكراً لأنكِ تضفين الجمال واللطافة على العالم من حولكِ. نتمنى لكِ عيد ميلاد سعيداً جداً وسنة مليئة بالنجاحات، التميز، والتألق!
+      </p>
+      <div class="final-line">"Keep shining bright like bioluminescent ocean light."</div>
+      <button class="secondary" onclick="scrollToSection('hero')">Return To The Surface 🌊</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
